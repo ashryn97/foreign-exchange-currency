@@ -19,6 +19,7 @@ body {
 .container {
     width: 500px;
     margin: 20px auto;
+    position: relative;
 }
 
 .header {
@@ -39,8 +40,89 @@ body {
 }
 
 ul.currencies {
-    height: 500px;
+    height: calc(100vh - 85px - 100px - 50px);
     background-color: #55529c;
+    padding: 0rem 1.5rem 1rem 1.5rem;
+    overflow-y: auto;
+}
+
+ul.currencies li {
+    background-color: #1a1838;
+    border-radius: 5px;
+    list-style: none;
+    padding: 1rem 1rem 0.75rem 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+ul.currencies li:last-child {
+    margin-bottom: 0;
+}
+
+ul.currencies li.base-currency {
+    background-color: #1a1838;
+}
+
+.flag {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    vertical-align: top;
+}
+
+.info {
+    display: inline-block;
+    width: 78%;
+}
+
+.info .input span {
+    font-size: 1.5rem;
+    display: inline-block;
+    width: 4rem;
+    text-align: center;
+}
+
+.info .input input {
+    font-weight: 1.5rem;
+    width: 70%;
+    background-color: transparent;
+    border: 2 px solid #ffffff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 0.3rem;
+    margin-bottom: 0.75rem;
+    margin-left: 3rem;
+}
+.info .currency-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-left: 3rem;
+}
+.info .base-currency-rate {
+  font-size: 0.8;
+  margin-left: 3rem;
+}
+ul.currencies li .close {
+  position: absolute;
+  padding: 0 0.5rem;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+}
+ul.currencies li .close:hover {
+  color: #fff;
+}
+
+/* scrollbar */
+
+ul.currencies::-webkit-scrollbar {
+    width: 5px;
+}
+
+ul.currencies::-webkit-scrollbar-thumb {
+    background-color: #1a1838;
+    border-bottom: 1rem solid #222;
 }
 
 .add-currency-button {
@@ -50,9 +132,39 @@ ul.currencies {
     font-size: 1.2rem;
     font-weight: bold;
     border: none;
-    border-top: 3px solid #222222;
+    border-top: -1 solid #222222;
     outline: none;
     width: 100%;
     cursor: pointer;
     transition: background-color 0.25s;
 }
+
+ul.add-currency-list {
+    position: absolute;
+    bottom: 54px;
+    left: 0;
+    background-color: #ffffff;
+    color: #262452;
+    width: 100%;
+    height: calc(100vh - 40px - 100px - 55px);
+    overflow-y: auto;
+}
+
+ul.add-currency-list li {
+    list-style: none;
+    padding: 0.75rem;
+    border-bottom: 1px solid #ddd;
+  }
+  ul.add-currency-list li.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  ul.add-currency-list li .flag {
+    width: 3rem;
+    height: 2rem;
+    vertical-align: middle;  
+  }
+  ul.add-currency-list li span {
+    margin-left: 1rem;
+    font-weight: bold;
+  }
